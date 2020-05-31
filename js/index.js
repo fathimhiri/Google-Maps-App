@@ -1,6 +1,7 @@
 
   var map;
-
+  var markers = [];
+  var infoWindow;
             function initMap() {
               
               var losAngelos = {
@@ -11,7 +12,7 @@
                 center: losAngelos,
                 zoom: 8
               });
-             
+              infoWindow = new google.maps.InfoWindow();
               displayStores();
               shwStoreMarkers();
             }
@@ -72,12 +73,12 @@ function shwStoreMarkers(){
           map: map,
           position: latlng
         });
-        let infoWindow = new google.maps.InfoWindow();
+         
           google.maps.event.addListener(marker, 'click', function() {
           infoWindow.setContent(html);
           infoWindow.open(map, marker);
         });
-      var markers = [];
+      
          markers.push(marker);
        }
             
