@@ -55,9 +55,11 @@ function shwStoreMarkers(){
 
     var name = store.name;
     var address = store.addressLines[0];
+    var statusText = store.openStatusText;
+    var phone= store.phoneNumber;
     bounds.extend(latlng);
     
-    createMarker(latlng, name, address);
+    createMarker(latlng, name, address, phone, statusText);
   });
   map.fitBounds(bounds);
 
@@ -67,8 +69,17 @@ function shwStoreMarkers(){
 
 
 
-       function createMarker(latlng, name, address) {
-        var html = "<b>" + name + "</b> <br/>" + address;
+       function createMarker(latlng, name, address, phone, statusText) {
+         var html = `
+          <div class= "store-info-window">
+            <div class= "store-info-name"> ${name}  </div>       
+            <div  class="store-info-status">${statusText}</div>
+            <div  class="store-info-adress">${address}</div>
+            <div class="store-info-phone">${phone}</div>
+          </div>`
+
+         
+        //var html = "<b>" + name + "</b> <br/>" + address;
         var marker = new google.maps.Marker({
           map: map,
           position: latlng

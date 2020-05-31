@@ -99,3 +99,22 @@ border-bottom: 1px solid #979797;
 .store-adress span{
     display:block;
 }
+.store-info-window{
+    min-width: 300px ;
+    font-size: 18px ;
+    
+    padding: 8px;
+}
+.store-info-name{
+    font-size: 24px;
+    font-weight: bold;
+    color: rgba(0,0,0, 0.87);
+}
+.store-info-status{
+   border-bottom: 1px solid #00000029; 
+   margin-top: 6px;
+   padding-bottom: 6px;
+}
+.store-info-adress, .store-info-phone{
+    margin-top: 8px;
+}
