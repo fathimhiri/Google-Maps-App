@@ -72,6 +72,7 @@ body {
 .store-container{
 display: flex;
 border-bottom: 1px solid #979797;
+cursor: pointer;
 }
 .store-info-container{
     flex-grow: 1;
@@ -131,5 +132,19 @@ align-items: center;
     justify-content: center;
     align-items: center;
     margin-right: 8px;
+}
+
+.store-container-backgrd{
+   width: 100%; 
+   display:flex;
+    padding-left: 8px ;
+   padding-right: 8px;
+   margin-top: 12px;
+   margin-bottom: 12px;
+   border-radius: 10px;
+   transition: background all 0.2s ease-in-out  ;
+}
+.store-container-backgrd:hover{
+    background-color: #ccc;
 }
 

@@ -16,7 +16,7 @@
               //displayStores(stores); we can just call it here all just call searchstores
               searchStores();
               
-              setOnClickListener();
+              
             }
 
             function searchStores(){
@@ -35,6 +35,7 @@
               clearLocations();
                 displayStores(foundstores);
                 shwStoreMarkers(foundstores);
+                setOnClickListener();
             }
 
             function clearLocations(){
@@ -65,18 +66,19 @@
              var adress = store.addressLines; 
              var phone = store.phoneNumber;
              storesHtml +=`<div class="store-container">
-              
-             <div class= "store-info-container" >
-                  <div class="store-adress">
-                     <span>${adress[0]}</span> 
-                     <span>${adress[1]}</span></div>
-                 <div class="store-phone-number">${phone}</div>
-             </div>
 
+          <div class= "store-container-backgrd" >
+                <div class= "store-info-container" >
+                      <div class="store-adress">
+                        <span>${adress[0]}</span> 
+                        <span>${adress[1]}</span></div>
+                    <div class="store-phone-number">${phone}</div>
+                </div>
+              
              <div class= "store-number-container">
                <div class="store-number">${index +1} </div>
              </div>
-
+          </div>
        </div>`
 
            });
