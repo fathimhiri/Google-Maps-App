@@ -15,7 +15,7 @@
               infoWindow = new google.maps.InfoWindow();
               //displayStores(stores); we can just call it here all just call searchstores
               searchStores();
-              shwStoreMarkers();
+              
               setOnClickListener();
             }
 
@@ -30,9 +30,21 @@
                 }
                });
               } else {
-                foundstores = stores; 
+                foundstores = stores;  
               }
+              clearLocations();
                 displayStores(foundstores);
+                shwStoreMarkers(foundstores);
+            }
+
+            function clearLocations(){
+              infoWindow.close();
+              for (var i = 0; i < markers.length; i++) {
+                markers[i].setMap(null);
+              }
+              markers.length = 0;
+     
+            
             }
       
        function setOnClickListener(){
@@ -71,7 +83,7 @@
            document.querySelector('.stores-list').innerHTML=storesHtml;
   }
             
-function shwStoreMarkers(){
+function shwStoreMarkers(stores){
   var bounds = new google.maps.LatLngBounds();
   stores.forEach(function(store, index){
 
