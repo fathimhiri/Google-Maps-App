@@ -74,8 +74,8 @@ function shwStoreMarkers(){
           <div class= "store-info-window">
             <div class= "store-info-name"> ${name}  </div>       
             <div  class="store-info-status">${statusText}</div>
-            <div  class="store-info-adress">${address}</div>
-            <div class="store-info-phone">${phone}</div>
+            <div  class="store-info-adress"><div class = "cercle"><i class="fas fa-location-arrow"></i></div>${address}</div>
+            <div class="store-info-phone"><div class = "cercle"><i class="fas fa-phone-volume"></i></div>${phone}</div>
           </div>`
 
          

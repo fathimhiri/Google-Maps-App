@@ -111,10 +111,25 @@ border-bottom: 1px solid #979797;
     color: rgba(0,0,0, 0.87);
 }
 .store-info-status{
-   border-bottom: 1px solid #00000029; 
+   border-bottom: 1px solid #033029; 
    margin-top: 6px;
    padding-bottom: 6px;
 }
 .store-info-adress, .store-info-phone{
     margin-top: 8px;
+display: flex;
+align-items: center;
+
 }
+.store-info-adress .cercle, .store-info-phone .cercle{
+    width: 30px;
+    height: 30px;
+    display: flex;
+    border-radius: 50%;
+    background-color: #1985A1;
+    color: white;
+    justify-content: center;
+    align-items: center;
+    margin-right: 8px;
+}
+
