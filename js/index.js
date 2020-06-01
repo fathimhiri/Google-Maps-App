@@ -15,9 +15,18 @@
               infoWindow = new google.maps.InfoWindow();
               displayStores();
               shwStoreMarkers();
+              setOnClickListener();
             }
       
-       
+       function setOnClickListener(){
+         var storeElements = document.querySelectorAll('.store-container');
+         storeElements.forEach(function(elem, index){
+          elem.addEventListener('click', function(){
+            google.maps.event.trigger(markers[index], 'click');
+          })
+
+         });
+       }
        
        
        
@@ -57,9 +66,10 @@ function shwStoreMarkers(){
     var address = store.addressLines[0];
     var statusText = store.openStatusText;
     var phone= store.phoneNumber;
+    
     bounds.extend(latlng);
     
-    createMarker(latlng, name, address, phone, statusText);
+    createMarker(latlng, name, address, phone, statusText, index);
   });
   map.fitBounds(bounds);
 
@@ -69,7 +79,7 @@ function shwStoreMarkers(){
 
 
 
-       function createMarker(latlng, name, address, phone, statusText) {
+       function createMarker(latlng, name, address, phone, statusText, index) {
          var html = `
           <div class= "store-info-window">
             <div class= "store-info-name"> ${name}  </div>       
@@ -82,7 +92,8 @@ function shwStoreMarkers(){
         //var html = "<b>" + name + "</b> <br/>" + address;
         var marker = new google.maps.Marker({
           map: map,
-          position: latlng
+          position: latlng,
+          label: `${index +1}` 
         });
          
           google.maps.event.addListener(marker, 'click', function() {
