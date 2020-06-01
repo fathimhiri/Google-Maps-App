@@ -13,9 +13,26 @@
                 zoom: 8
               });
               infoWindow = new google.maps.InfoWindow();
-              displayStores();
+              //displayStores(stores); we can just call it here all just call searchstores
+              searchStores();
               shwStoreMarkers();
               setOnClickListener();
+            }
+
+            function searchStores(){
+              var foundstores = [];
+               var zipCode = document.getElementById("zipcode").value;
+                if (zipCode){
+               stores.forEach(function(store){
+                var postal = store.address.postalCode.substring(0,5);
+                if (postal == zipCode){
+                  foundstores.push(store);
+                }
+               });
+              } else {
+                foundstores = stores; 
+              }
+                displayStores(foundstores);
             }
       
        function setOnClickListener(){
@@ -30,7 +47,7 @@
        
        
        
-            function displayStores(){
+            function displayStores(stores){
          var storesHtml = "";
            stores.forEach(function(store, index){
              var adress = store.addressLines; 
